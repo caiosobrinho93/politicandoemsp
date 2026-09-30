@@ -1,0 +1,38 @@
+{
+  "name": "politicasp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "db:local:start": "node scripts/db/local.mjs start",
+    "db:local:stop": "node scripts/db/local.mjs stop",
+    "db:local:status": "node scripts/db/local.mjs status",
+    "db:local:reset": "node scripts/db/local.mjs reset",
+    "db:apply": "node scripts/db/apply.mjs",
+    "db:apply:seed": "node scripts/db/apply.mjs --seed",
+    "db:types": "node scripts/db/generate-types.mjs",
+    "db:test": "node scripts/db/smoke-test.mjs",
+    "db:reset-local": "node scripts/db/local.mjs reset && node scripts/db/apply.mjs --seed && node scripts/db/generate-types.mjs && node scripts/db/smoke-test.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "embedded-postgres": "^17.10.0-beta.17",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.7",
+    "pg": "^8.23.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Design tokens — plataforma de análise política (mobile-first)
+   Paleta sóbria e neutra. Nenhuma cor representa partido ou ideologia.
+   ========================================================================== */
+@theme {
+  /* Tipografia: pilha de fontes do sistema (sem dependência de rede no build). */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Base neutra: superfícies, bordas e texto. */
+  --color-ink-50: #f5f6f8;
+  --color-ink-100: #ebedf1;
+  --color-ink-200: #d8dbe2;
+  --color-ink-300: #b4b9c5;
+  --color-ink-400: #7c8494;
+  --color-ink-500: #565e6f;
+  --color-ink-600: #414858;
+  --color-ink-700: #333a48;
+  --color-ink-800: #21262f;
+  --color-ink-900: #14181f;
+  --color-ink-950: #0b0e13;
+
+  /* Azul institucional: identidade, links e foco. */
+  --color-brand-50: #eff4fa;
+  --color-brand-100: #dae6f5;
+  --color-brand-200: #b5cdea;
+  --color-brand-300: #83addc;
+  --color-brand-400: #4f88ca;
+  --color-brand-500: #2a67b1;
+  --color-brand-600: #1f528f;
+  --color-brand-700: #1b4273;
+  --color-brand-800: #1a3960;
+  --color-brand-900: #193151;
+
+  /* Selos epistêmicos: cada categoria de informação tem cor própria.
+     A cor identifica a ORIGEM da informação, nunca o seu conteúdo. */
+  --color-tag-fato: #0b5f57;
+  --color-tag-fato-soft: #e3f2f0;
+  --color-tag-dado-oficial: #1b4273;
+  --color-tag-dado-oficial-soft: #e7eef8;
+  --color-tag-noticia: #8a5300;
+  --color-tag-noticia-soft: #fbf1e0;
+  --color-tag-declaracao: #5b2f8f;
+  --color-tag-declaracao-soft: #f1eafa;
+  --color-tag-opiniao: #7a2a3d;
+  --color-tag-opiniao-soft: #fbe9ed;
+  --color-tag-ausente: #4b5563;
+  --color-tag-ausente-soft: #eff1f3;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink-50);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Foco sempre visível para navegação por teclado. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  a {
+    color: var(--color-brand-700);
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    color: var(--color-brand-800);
+  }
+
+  hr {
+    border-color: var(--color-ink-200);
+  }
+}
+
+/* Animações apenas utilitárias (transição curta de cor). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
